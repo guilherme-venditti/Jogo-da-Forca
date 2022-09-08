@@ -24,8 +24,8 @@ function desenhaCanvas() {
             tabuleiro.moveTo(500+(largura*i), 640)
             tabuleiro.lineTo(550+(largura*i), 640)
         }
-        tabuleiro.stroke
-        tabuleiro.closePath
+        tabuleiro.stroke()
+        tabuleiro.closePath()
     }
 }
 
