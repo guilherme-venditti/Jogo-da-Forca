@@ -9,9 +9,9 @@ function sorteiaPalavra() {
     console.log(palavra)
 }
 
-
 function iniciarJogo() {
     document.getElementById('desaparece').style.display = 'none'
+    document.getElementById('forca').style.display = 'block'
     sorteiaPalavra()
     desenhaCanvas()
     desenhaLinhas()

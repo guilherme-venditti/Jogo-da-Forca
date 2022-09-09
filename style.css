@@ -1,0 +1,23 @@
+#desaparece {
+    background-color: #6474b1;
+    height: 600px;
+    text-align: center;
+    line-height: center;
+}
+
+.botao {
+    width: 328px;
+    height: 105px;
+    padding: 24px;
+    border-radius: 17px;
+    margin: auto;
+    position: absolute;
+    top: 394px;
+    background-color: darkblue;
+    color: white;
+    margin: auto;
+}
+
+#forca {
+    display: none;
+}
