@@ -9,11 +9,21 @@ function sorteiaPalavra() {
     console.log(palavra)
 }
 
+function verificaLetra() {
+    document.addEventListener('keypress', (event) => {
+        let chave = event.key
+
+        if (chave.length == 1 && chave.match(/[a-z]/)) {
+            window.alert(chave)
+        }
+    })
+}
+
 function iniciarJogo() {
     document.getElementById('desaparece').style.display = 'none'
     document.getElementById('forca').style.display = 'block'
     sorteiaPalavra()
     desenhaCanvas()
     desenhaLinhas()
+    verificaLetra()
 }
-
