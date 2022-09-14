@@ -11,10 +11,16 @@ function sorteiaPalavra() {
 
 function verificaLetra() {
     document.addEventListener('keypress', (event) => {
-        let chave = event.key
+        let chave = event.key.toUpperCase()
 
-        if (chave.length == 1 && chave.match(/[a-z]/)) {
+        if (chave.length == 1 && chave.match(/[a-z]/i)) {
             window.alert(chave)
+           if (palavraSecreta.includes(chave)) {
+            window.alert('Chave presente')
+           }
+           else {
+            window.alert('Chave não presente')
+           }
         }
     })
 }
