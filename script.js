@@ -3,6 +3,12 @@
 let palavras = ["JAVASCRIPT"]
 let tabuleiro = document.getElementById('forca').getContext('2d')
 let palavraSecreta = "";
+let erros = 0
+let acertos = 0
+let letrasErradas = []
+let letrasAcertadas = []
+
+window.onkeypress = jogar
 
 function sorteiaPalavra() {
     let palavra = palavras[Math.floor(Math.random() * palavras.length)]
@@ -11,19 +17,19 @@ function sorteiaPalavra() {
 }
 
 function jogar() {
-    let erros = 0;
-    let letrasErradas = []
-    document.addEventListener('keypress', (event) => {
     let chave = event.key.toUpperCase()
     
         if (chave.length == 1 && chave.match(/[a-z]/i)) {
                 const indexes = []
                 
             //Irá enviar para a const indexes a posição das letras repetidas, caso haja.
-            if (palavraSecreta.includes(chave)) {
+            if (palavraSecreta.includes(chave) || letrasAcertadas.indexOf(chave) == -1) {
+                letrasAcertadas.push(chave)
                 for (let i = 0; i < palavraSecreta.length; i++) {
                     if (palavraSecreta[i] === chave) {
-                    indexes.push(i) }} 
+                        indexes.push(i) 
+                    } 
+                } 
 
                     //Desenha as letras usando as posições presentes no index.
                     for (let p = 0; p < indexes.length; p++){
@@ -50,12 +56,12 @@ function jogar() {
                 desenhaPernaDir()
                 //adicionar função que finaliza jogo
                }
+               verificaJogo()
                
                console.log(erros)
             }
         }
     }
-)}
 
 function desenhaLetra(letra, pos) {
     let largura = 600/palavraSecreta.length
@@ -78,5 +84,10 @@ function iniciarJogo() {
     sorteiaPalavra()
     desenhaCanvas()
     desenhaLinhas()
-    jogar()
+}
+
+function verificaJogo() {
+    if (erros >= 6) {
+    window.onkeypress = null
+}
 }
