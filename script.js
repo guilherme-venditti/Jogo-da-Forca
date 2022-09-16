@@ -12,12 +12,12 @@ function sorteiaPalavra() {
 
 function jogar() {
     let erros = 0;
+    let letrasErradas = []
     document.addEventListener('keypress', (event) => {
     let chave = event.key.toUpperCase()
     
         if (chave.length == 1 && chave.match(/[a-z]/i)) {
                 const indexes = []
-                let letrasErradas = []
                 
             //Irá enviar para a const indexes a posição das letras repetidas, caso haja.
             if (palavraSecreta.includes(chave)) {
@@ -30,30 +30,45 @@ function jogar() {
                         desenhaLetra(chave, indexes[p])
                 }   
             } else {
+                if (letrasErradas.indexOf(chave) == -1) {
+                desenhaLetraErrada(chave, erros)
                 erros++
                 letrasErradas.push(chave)
-                if (letrasErradas.indexOf(chave) != -1) {
-                desenhaLetraErrada(chave, erros)
                }
+
+               if (erros == 1) {
+                desenhaCabeca()
+               } else if (erros == 2) {
+                desenhaCorpo()
+               } else if (erros == 3) {
+                desenhaBracoDir()
+               } else if (erros == 4) {
+                desenhaBracoEsq()
+               } else if (erros == 5) {
+                desenhaPernaEsq()
+               } else if (erros >= 6) {
+                desenhaPernaDir()
+                //adicionar função que finaliza jogo
+               }
+               
                console.log(erros)
             }
         }
     }
 )}
 
-
 function desenhaLetra(letra, pos) {
     let largura = 600/palavraSecreta.length
     tabuleiro.fillStyle = 'black'
     tabuleiro.font = '60px san-serif';
-    tabuleiro.fillText(letra, 500+(largura*pos), 600)
+    tabuleiro.fillText(letra, 325+(largura*pos), 600)
 }
 
 function desenhaLetraErrada(letra, tentativa) {
     let largura = 600/palavraSecreta.length
     tabuleiro.fillStyle = 'red'
     tabuleiro.font = '60px san-serif';
-    tabuleiro.fillText(letra, 500+(largura*tentativa), 710)
+    tabuleiro.fillText(letra, 325+(largura*tentativa), 710)
 
 }
 

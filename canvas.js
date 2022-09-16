@@ -7,10 +7,17 @@ function desenhaCanvas() {
 
     tabuleiro.fillRect(0,0, 1200, 800);
     tabuleiro.beginPath()
-    tabuleiro.moveTo(900, 500);
-    tabuleiro.lineTo(650, 500);
+    tabuleiro.moveTo(725, 500);
+    tabuleiro.lineTo(475, 500);
     tabuleiro.stroke()
     tabuleiro.closePath()
+    
+    tabuleiro.beginPath()
+    tabuleiro.moveTo(500, 500);
+    tabuleiro.lineTo(500, 100);
+    tabuleiro.lineTo(675, 100);
+    tabuleiro.lineTo(675, 150);
+    tabuleiro.stroke()
 }
 
 function desenhaLinhas() {
@@ -22,9 +29,58 @@ function desenhaLinhas() {
 
     let largura = 600/palavraSecreta.length
     for(let i = 0; i < palavraSecreta.length; i++) {
-        tabuleiro.moveTo(500+(largura*i), 640)
-        tabuleiro.lineTo(550+(largura*i), 640)
+        tabuleiro.moveTo(325+(largura*i), 640)
+        tabuleiro.lineTo(375+(largura*i), 640)
     }
+    tabuleiro.stroke()
+    tabuleiro.closePath()
+}
+
+function desenhaCabeca() {
+    tabuleiro.strokeStyle = 'blue';
+    tabuleiro.beginPath();
+    tabuleiro.arc(675, 182, 32, 0, 2 * 3.14);
+    tabuleiro.stroke();
+}
+
+function desenhaCorpo() {
+    tabuleiro.fillStyle = 'blue'
+    tabuleiro.lineWidth = 6
+    tabuleiro.beginPath()
+    tabuleiro.moveTo(675, 214)
+    tabuleiro.lineTo(675, 364)
+    tabuleiro.stroke()
+    tabuleiro.closePath()
+}
+
+function desenhaBracoDir() {
+    tabuleiro.beginPath()
+    tabuleiro.moveTo(675, 214)
+    tabuleiro.lineTo(725, 314)
+    tabuleiro.stroke()
+    tabuleiro.closePath()
+}
+
+function desenhaBracoEsq() {
+    tabuleiro.beginPath()
+    tabuleiro.moveTo(675, 214)
+    tabuleiro.lineTo(625, 314)
+    tabuleiro.stroke()
+    tabuleiro.closePath()
+}
+
+function desenhaPernaDir() {
+    tabuleiro.beginPath()
+    tabuleiro.moveTo(675, 364)
+    tabuleiro.lineTo(625, 464)
+    tabuleiro.stroke()
+    tabuleiro.closePath()
+}
+
+function desenhaPernaEsq() {
+    tabuleiro.beginPath()
+    tabuleiro.moveTo(675, 364)
+    tabuleiro.lineTo(725, 464)
     tabuleiro.stroke()
     tabuleiro.closePath()
 }
