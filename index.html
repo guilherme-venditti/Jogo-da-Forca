@@ -12,12 +12,16 @@
     <main></main>
         <div id="desaparece" class="home">
             <a href="#forca">
-                <input class="botao" type="submit" value="Iniciar Jogo" onclick="iniciarJogo()">
+                <input class="botao-menu" type="submit" value="Iniciar Jogo" onclick="iniciarJogo()">
             </a>
         </div>
 
         <section> 
         <canvas id="forca" height="800px" width="1200px"></canvas>
+            <section id="fim-de-jogo">
+                <input type="button" value="Novo Jogo" class="botaoFim" onclick="iniciarJogo()">
+                <input type="button" value="Desistir" class="botaoFim" id="btnDesistir" onclick="desistir()">
+            </section>
         </section>
     </main>
 

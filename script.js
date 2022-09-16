@@ -23,40 +23,29 @@ function jogar() {
                 const indexes = []
                 
             //Irá enviar para a const indexes a posição das letras repetidas, caso haja.
-            if (palavraSecreta.includes(chave) || letrasAcertadas.indexOf(chave) == -1) {
-                letrasAcertadas.push(chave)
-                for (let i = 0; i < palavraSecreta.length; i++) {
-                    if (palavraSecreta[i] === chave) {
-                        indexes.push(i) 
+            if (palavraSecreta.includes(chave)) {
+                if (letrasAcertadas.indexOf(chave) == -1) { //Ou seja, se a letra não tiver sido digitada antes
+                    letrasAcertadas.push(chave)
+                    for (let i = 0; i < palavraSecreta.length; i++) { //Irá verificar a quantia de vezes que a letra se repete na string para desenhar quantas vezes for preciso e contabilizar corretamente os acertos.
+                        if (palavraSecreta[i] == chave) {
+                            indexes.push(i) 
+                            acertos++
+                            console.log(`Acertos: ${acertos}`)
+                        }  
                     } 
-                } 
-
                     //Desenha as letras usando as posições presentes no index.
                     for (let p = 0; p < indexes.length; p++){
                         desenhaLetra(chave, indexes[p])
+                    } 
+                    verificaJogo()
                 }   
             } else {
                 if (letrasErradas.indexOf(chave) == -1) {
-                desenhaLetraErrada(chave, erros)
-                erros++
-                letrasErradas.push(chave)
-               }
-
-               if (erros == 1) {
-                desenhaCabeca()
-               } else if (erros == 2) {
-                desenhaCorpo()
-               } else if (erros == 3) {
-                desenhaBracoDir()
-               } else if (erros == 4) {
-                desenhaBracoEsq()
-               } else if (erros == 5) {
-                desenhaPernaEsq()
-               } else if (erros >= 6) {
-                desenhaPernaDir()
-                //adicionar função que finaliza jogo
-               }
-               verificaJogo()
+                    desenhaLetraErrada(chave, erros)
+                    erros++
+                    letrasErradas.push(chave)
+                }
+                verificaJogo()
                
                console.log(erros)
             }
@@ -79,15 +68,48 @@ function desenhaLetraErrada(letra, tentativa) {
 }
 
 function iniciarJogo() {
+    erros = 0
+    acertos = 0
+    letrasErradas = []
+    letrasAcertadas = []
+    window.onkeypress = jogar
+
     document.getElementById('desaparece').style.display = 'none'
     document.getElementById('forca').style.display = 'block'
+    document.getElementById('fim-de-jogo').style.display = 'inline-block'
     sorteiaPalavra()
     desenhaCanvas()
     desenhaLinhas()
 }
 
 function verificaJogo() {
+    
+     if (erros == 1) {
+                desenhaCabeca()
+               } else if (erros == 2) {
+                desenhaCorpo()
+               } else if (erros == 3) {
+                desenhaBracoDir()
+               } else if (erros == 4) {
+                desenhaBracoEsq()
+               } else if (erros == 5) {
+                desenhaPernaEsq()
+               } else if (erros >= 6) {
+                desenhaPernaDir()
+               }
+    
     if (erros >= 6) {
-    window.onkeypress = null
+        window.onkeypress = null
+        escrevePerdedor()
+
+    } else if (acertos == palavraSecreta.length) {
+        window.onkeypress = null
+        escreveVencedor()
+    }
 }
+
+function desistir() {
+    document.getElementById('desaparece').style.display = 'block'
+    document.getElementById('forca').style.display = 'none'
+    document.getElementById('fim-de-jogo').style.display = 'none'
 }

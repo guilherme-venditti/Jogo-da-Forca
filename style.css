@@ -5,7 +5,7 @@
     line-height: center;
 }
 
-.botao {
+.botao-menu {
     width: 328px;
     height: 105px;
     padding: 24px;
@@ -15,7 +15,6 @@
     top: 394px;
     background-color: darkblue;
     color: white;
-    margin: auto;
 }
 
 #forca {
@@ -23,3 +22,28 @@
     height: 600px;
     width: 100%;
 }
+
+#fim-de-jogo {
+    display: none;
+    background-color: #f3f5fc;
+    width: 100%;
+    text-align: center;
+}
+
+.botaoFim {
+    width: 328px;
+    height: 65px;
+    padding: 24px;
+    border-radius: 17px;
+    margin: auto;
+    background-color: darkblue;
+    color: white;
+    margin: 50px 25px 25px 25px;
+    float: bottom;
+}
+
+#btnDesistir {
+    background-color: #f3f5fc;
+    color: darkblue;
+}
+

@@ -84,3 +84,15 @@ function desenhaPernaEsq() {
     tabuleiro.stroke()
     tabuleiro.closePath()
 }
+
+function escreveVencedor() {
+    tabuleiro.fillStyle = 'green'
+    tabuleiro.font = '60px san-serif';
+    tabuleiro.fillText('Você venceu o jogo!', 700, 289)
+}
+
+function escrevePerdedor() {
+    tabuleiro.fillStyle = 'red'
+    tabuleiro.font = '60px san-serif';
+    tabuleiro.fillText('Você perdeu o jogo!', 700, 289)
+}
