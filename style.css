@@ -18,6 +18,12 @@
     font: normal 13pt impact
 }
 
+#desaparece img {
+    width: 25px;
+    height: 25px;
+    margin: 0 5px;
+}
+
 #novaPalavra {
     width: 100%;
     background-color: #f3f5fc; 

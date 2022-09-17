@@ -13,7 +13,6 @@ window.onkeypress = jogar
 function sorteiaPalavra() {
     let palavra = palavras[Math.floor(Math.random() * palavras.length)]
     palavraSecreta = palavra
-    console.log(palavra)
 }
 
 function jogar() {
@@ -30,7 +29,6 @@ function jogar() {
                         if (palavraSecreta[i] == chave) {
                             indexes.push(i) 
                             acertos++
-                            console.log(`Acertos: ${acertos}`)
                         }  
                     } 
                     //Desenha as letras usando as posições presentes no index.
@@ -39,18 +37,16 @@ function jogar() {
                     } 
                     verificaJogo()
                 }   
-            } else {
-                if (letrasErradas.indexOf(chave) == -1) {
-                    desenhaLetraErrada(chave, erros)
-                    erros++
-                    letrasErradas.push(chave)
-                }
-                verificaJogo()
-               
-               console.log(erros)
+        } else {
+            if (letrasErradas.indexOf(chave) == -1) {
+                desenhaLetraErrada(chave, erros)
+                erros++
+                letrasErradas.push(chave)
             }
+            verificaJogo()
         }
     }
+}
 
 function desenhaLetra(letra, pos) {
     let largura = 600/palavraSecreta.length
@@ -64,7 +60,6 @@ function desenhaLetraErrada(letra, tentativa) {
     tabuleiro.fillStyle = 'red'
     tabuleiro.font = '30px san-serif';
     tabuleiro.fillText(letra, 325+(largura*tentativa), 710)
-
 }
 
 function iniciarJogo() {
@@ -86,18 +81,18 @@ function iniciarJogo() {
 function verificaJogo() {
     
      if (erros == 1) {
-                desenhaCabeca()
-               } else if (erros == 2) {
-                desenhaCorpo()
-               } else if (erros == 3) {
-                desenhaBracoDir()
-               } else if (erros == 4) {
-                desenhaBracoEsq()
-               } else if (erros == 5) {
-                desenhaPernaEsq()
-               } else if (erros >= 6) {
-                desenhaPernaDir()
-               }
+            desenhaCabeca()
+    } else if (erros == 2) {
+        desenhaCorpo()
+    } else if (erros == 3) {
+        desenhaBracoDir()
+    } else if (erros == 4) {
+        desenhaBracoEsq()
+    } else if (erros == 5) {
+        desenhaPernaEsq()
+    } else if (erros >= 6) {
+        desenhaPernaDir()
+    }
     
     if (erros >= 6) {
         window.onkeypress = null
