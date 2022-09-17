@@ -11,10 +11,11 @@
     
     <main></main>
         <div id="desaparece" class="home">
-            <a href="#forca">
+           
                 <h2> Jogo da Forca</h2>
                 <p> Por Guilherme Venditti</p>
                 <input class="botao-menu" type="submit" value="Iniciar Jogo" onclick="iniciarJogo()">
+                <input class="botao-menu" id="btnNovaPalavra" type="submit" value="Adicionar Palavras" onclick="telaAdd()">
             </a>
         </div>
 
@@ -24,6 +25,13 @@
                 <input type="button" value="Novo Jogo" class="botaoFim" onclick="iniciarJogo()">
                 <input type="button" value="Desistir" class="botaoFim" id="btnDesistir" onclick="desistir()">
             </section>
+        </section>
+
+        <section id="novaPalavra">
+            <input type="text" class="texto" id="texto" placeholder="Digite a palavra aqui..."> 
+            <p> Obs: Apenas palavras sem acento.</p>
+            <input type="button" value="Adicionar nova palavra" class="botao-add" onclick="addPalavra()">
+            <input type="button" value="Iniciar Jogo" class="botao-add" onclick="iniciarJogo()">
         </section>
     </main>
 

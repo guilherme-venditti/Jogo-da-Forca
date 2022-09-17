@@ -9,11 +9,47 @@
 #desaparece h2 {
     font: normal 30pt impact;
     margin: 0;
+    text-decoration: underline;
+    color: rgb(66, 2, 66);
 }
 
 #desaparece p {
     margin: 0;
     font: normal 13pt impact
+}
+
+#novaPalavra {
+    width: 100%;
+    background-color: #f3f5fc; 
+    height: 600px;
+    text-align: center;
+    line-height: center;
+    display: none;
+}
+
+.texto {
+    width: 100%;
+    height: 100px;
+    margin-top: 50px;
+    margin-bottom: 200px;
+    border: none;
+    font: normal 32px sans-serif;
+    color: #0A3871;
+    background-color: #f3f5fc;
+}
+
+#novaPalavra p {
+    text-align: center;
+}
+
+.botao-add {
+    width: 328px;
+    height: 67px;
+    padding: 24px;
+    border-radius: 17px;
+    margin: 50px 50px 0 50px;
+    background-color: #0A3871;
+    color: white;
 }
 
 .botao-menu {
@@ -24,6 +60,7 @@
     background-color: darkblue;
     color: white;
     margin-top: 50px;
+    margin: 25px;
 }
 
 #forca {

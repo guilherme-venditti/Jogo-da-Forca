@@ -6,6 +6,7 @@ let erros = 0
 let acertos = 0
 let letrasErradas = []
 let letrasAcertadas = []
+var input = document.getElementById('texto')
 
 window.onkeypress = jogar
 
@@ -76,6 +77,7 @@ function iniciarJogo() {
     document.getElementById('desaparece').style.display = 'none'
     document.getElementById('forca').style.display = 'block'
     document.getElementById('fim-de-jogo').style.display = 'inline-block'
+    document.getElementById('novaPalavra').style.display = 'none'
     sorteiaPalavra()
     desenhaCanvas()
     desenhaLinhas()
@@ -111,4 +113,20 @@ function desistir() {
     document.getElementById('desaparece').style.display = 'block'
     document.getElementById('forca').style.display = 'none'
     document.getElementById('fim-de-jogo').style.display = 'none'
+}
+
+function telaAdd () {
+    document.getElementById('novaPalavra').style.display = 'block'
+    document.getElementById('desaparece').style.display = 'none'
+}
+
+function addPalavra () {
+    let novaPalavra = input.value.toUpperCase()
+
+    if (novaPalavra.length <= 3) {
+        window.alert('Palavra muito pequena! O mínimo é de 4 letras!')
+    } else {
+        palavras.push(novaPalavra)
+    }
+
 }
