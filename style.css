@@ -1,8 +1,19 @@
 #desaparece {
     background-color: #6474b1;
     height: 600px;
-    text-align: center;
     line-height: center;
+    width: 100%;
+    text-align: center;
+}
+
+#desaparece h2 {
+    font: normal 30pt impact;
+    margin: 0;
+}
+
+#desaparece p {
+    margin: 0;
+    font: normal 13pt impact
 }
 
 .botao-menu {
@@ -10,11 +21,9 @@
     height: 105px;
     padding: 24px;
     border-radius: 17px;
-    margin: auto;
-    position: absolute;
-    top: 394px;
     background-color: darkblue;
     color: white;
+    margin-top: 50px;
 }
 
 #forca {

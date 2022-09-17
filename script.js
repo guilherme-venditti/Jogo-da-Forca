@@ -1,6 +1,5 @@
 //Seletores
-//let palavras = ["ALURA", "ORACLE", "FORCA", "JAVASCRIPT", "LOGICA"]
-let palavras = ["JAVASCRIPT"]
+let palavras = ["ALURA", "ORACLE", "FORCA", "JAVASCRIPT", "LOGICA"]
 let tabuleiro = document.getElementById('forca').getContext('2d')
 let palavraSecreta = "";
 let erros = 0
@@ -62,7 +61,7 @@ function desenhaLetra(letra, pos) {
 function desenhaLetraErrada(letra, tentativa) {
     let largura = 600/palavraSecreta.length
     tabuleiro.fillStyle = 'red'
-    tabuleiro.font = '60px san-serif';
+    tabuleiro.font = '30px san-serif';
     tabuleiro.fillText(letra, 325+(largura*tentativa), 710)
 
 }
